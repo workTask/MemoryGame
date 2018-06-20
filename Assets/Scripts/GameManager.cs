@@ -8,19 +8,22 @@ public class GameManager : MonoBehaviour {
     private GameObject _secondCard = null;
     private int _cardsLeft;
     private bool _canFlip = true;
+    
     [SerializeField]
     private float _timeBetweenFlips = 0.75f; //I think that particullar value works best, but you can adjust it as you want
+  
+    private ScoreManager _scoreManager; //
+    [SerializeField]
+    private GameObject _winMenu; //
+    [SerializeField]
+    private TimeCounter _timeCounter;//
+    
     public bool canFlip
     {
-        get
-        {
-            return _canFlip;
-        }
-        set
-        {
-            _canFlip = value;
-        }
+        get{return _canFlip;}
+        set{_canFlip = value;}
     }
+    
     public int cardsLeft
     {
         get
@@ -45,6 +48,11 @@ public class GameManager : MonoBehaviour {
             if (CheckIfMatch())
             {
                 DecreaseCardCount();
+                
+                _scoreManager.AddScore(); //
+                _scoreManager.AddScore(); //
+                
+                
                 StartCoroutine(DeactivateCards());
             }
             else
@@ -79,6 +87,9 @@ public class GameManager : MonoBehaviour {
         if (_cardsLeft <= 0)
         {
             //TODO GameOver
+            _winMenu.SetActive(true); //
+            _timeCounter.countTime = false; //
+            _scoreManager.CalculateEndScore(); //
         }
     }
     bool CheckIfMatch()
@@ -90,5 +101,11 @@ public class GameManager : MonoBehaviour {
         
         return false;
     }
+    void Start()
+    {
+        _scoreManager = FindObjectOfType<ScoreManager>(); //
+        _timeCounter = FindObjectOfType<TimeCounter>(); //
+    }
+
 }
 

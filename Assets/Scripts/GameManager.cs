@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -11,7 +13,9 @@ public class GameManager : MonoBehaviour {
     
     [SerializeField]
     private float _timeBetweenFlips = 0.75f; //I think that particullar value works best, but you can adjust it as you want
-  
+
+    [SerializeField] private String newSceneLevel;
+    
     private ScoreManager _scoreManager; //
     [SerializeField]
     private GameObject _winMenu; //
@@ -90,6 +94,9 @@ public class GameManager : MonoBehaviour {
             _winMenu.SetActive(true); //
             _timeCounter.countTime = false; //
             _scoreManager.CalculateEndScore(); //
+            //load new level
+            SceneManager.LoadScene(newSceneLevel);
+            
         }
     }
     bool CheckIfMatch()

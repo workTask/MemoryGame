@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeBetweenFlips: 0.3
+  newSceneLevel: Level02
   _winMenu: {fileID: 1026157934}
   _timeCounter: {fileID: 715970146}
 --- !u!4 &260115415

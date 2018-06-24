@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour {
     private GameObject _winMenu; //
     [SerializeField]
     private TimeCounter _timeCounter;//
+   
+ 
+   
     
     public bool canFlip
     {
@@ -54,7 +57,7 @@ public class GameManager : MonoBehaviour {
                 DecreaseCardCount();
                 
                 _scoreManager.AddScore(); //
-                _scoreManager.AddScore(); //
+             //   _scoreManager.AddScore(); //
                 
                 
                 StartCoroutine(DeactivateCards());
@@ -91,9 +94,10 @@ public class GameManager : MonoBehaviour {
         if (_cardsLeft <= 0)
         {
             //TODO GameOver
-            _winMenu.SetActive(true); //
-            _timeCounter.countTime = false; //
-            _scoreManager.CalculateEndScore(); //
+            //_timeCounter.countTime = false; //
+           // _scoreManager.CalculateEndScore(); //
+            //_scoreManager.score = 0;
+           
             //load new level
             SceneManager.LoadScene(newSceneLevel);
             

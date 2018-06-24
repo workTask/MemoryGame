@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour
 	[SerializeField]
 	private int _bonusScorePerSecondLost = 80;
 	[SerializeField]
-	private int _scorePerCard = 50;
+	private int _scorePerCard = 10;
 	private TimeCounter _timeCounter;
 	
 	

@@ -56,9 +56,11 @@
     <Compile Include="Assets\Scripts\CardController.cs" />
     <Compile Include="Assets\Scripts\CardSpawner.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\ScoreCount.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\SetScoreText.cs" />
     <Compile Include="Assets\Scripts\TimeCounter.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\ButtunsFX.cs" />
     <Compile Include="Assets\Scripts\UI\PlayMenu\ExitOnClick.cs" />
     <Compile Include="Assets\Scripts\UI\PlayMenu\LoadSceneOnClick.cs" />
     <Reference Include="UnityEditor.StandardEvents">

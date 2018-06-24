@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +13,7 @@ public class TimeCounter : MonoBehaviour {
 	
 	private int _counter = 1;
 	private bool _countTime = true;
+	
 	public bool countTime
 	{
 		get
@@ -24,11 +27,9 @@ public class TimeCounter : MonoBehaviour {
 	}
 	public int timeCounted
 	{
-		get
-		{
-			return _counter;
-		}
+		get{return _counter;}
 	}
+	
 	// Update is called once per frame
 	void Update()
 	{
@@ -36,7 +37,10 @@ public class TimeCounter : MonoBehaviour {
 		{
 			if (_timeCounter >= _counter) //Updating Text each frame would be very CPU expensive
 			{
-				_timeText.text = "Time: " + _counter;
+				//Convert float in minute and second
+				TimeSpan time = TimeSpan.FromSeconds(_counter);
+				
+				_timeText.text = "Time: " + new DateTime(time.Ticks).ToString("mm:ss");
 				_counter++;
 			}
 			_timeCounter += Time.deltaTime;
